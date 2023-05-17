@@ -1,8 +1,16 @@
 import AuthorImage from '@/assets/images/author.jpg';
+
+/*
 import NFT1 from '@/assets/images/nft/nft-1.jpg';
 import NFT2 from '@/assets/images/nft/nft-2.jpg';
 import NFT3 from '@/assets/images/nft/nft-3.jpg';
 import NFT4 from '@/assets/images/nft/nft-4.jpg';
+*/
+
+import NFT1 from '@/assets/images/nft/Hrs_00006000.png';
+import NFT2 from '@/assets/images/nft/Hrs_00006001.png';
+import NFT3 from '@/assets/images/nft/Hrs_00006002.png';
+import NFT4 from '@/assets/images/nft/Hrs_00006003.png';
 
 export const NFTList = [
   {

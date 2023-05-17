@@ -22,7 +22,12 @@ import Preview from '@/components/create-nft/nft-preview';
 
 //images
 import AuthorImage from '@/assets/images/author.jpg';
-import NFT1 from '@/assets/images/nft/nft-1.jpg';
+
+
+///import NFT1 from '@/assets/images/nft/nft-1.jpg';
+import NFT1 from '@/assets/images/nft/Hrs_00006000.png';
+
+
 import PriceType from '@/components/create-nft/price-types-props';
 
 const BlockchainOptions = [

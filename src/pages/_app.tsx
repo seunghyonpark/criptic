@@ -43,6 +43,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
         />
         <title>Criptic - React Next Web3 NFT Crypto Dashboard Template</title>
       </Head>
+      
       <QueryClientProvider client={queryClient}>
         <ThemeProvider
           attribute="class"
@@ -58,8 +59,11 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
             <DrawersContainer />
             {/* </div> */}
           </WalletProvider>
+
         </ThemeProvider>
+
       </QueryClientProvider>
+
     </>
   );
 }
