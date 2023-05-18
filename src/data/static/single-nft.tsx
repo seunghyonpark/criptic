@@ -1,4 +1,5 @@
-import SingleNft from '@/assets/images/single-nft.jpg';
+//////import SingleNft from '@/assets/images/single-nft.jpg';
+import SingleNft from '@/assets/images/single-nft.png';
 
 import Bitcoin from '@/assets/images/currency/bitcoin.svg';
 import Ethereum from '@/assets/images/currency/ethereum.svg';
@@ -18,7 +19,7 @@ export const nftData = {
   price: 0.2,
   description:
     'Fisherian Runaways, Child of #48 Bat Veil & #42 Screw Nose. This mushroom is the result of the cross-breeding of two original one of a kind generative mushrooms donated back to the Fisherian Runaways project their generous owner.',
-  creator: { id: 1, logo: Avatar1, name: '@Cameronwilliamson', slug: '#' },
+  creator: { id: 1, logo: Avatar1, name: '@Waynepark', slug: '#' },
   collection: { id: 1, logo: Avatar3, name: 'Criptic', slug: '#' },
   owner: { id: 1, logo: Avatar4, name: '@williamson', slug: '#' },
   block_chains: [

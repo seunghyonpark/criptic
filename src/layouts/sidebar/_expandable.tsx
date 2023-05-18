@@ -14,7 +14,7 @@ import { useClickAway } from '@/lib/hooks/use-click-away';
 import { menuItems } from '@/layouts/sidebar/_menu-items';
 import routes from '@/config/routes';
 //images
-import AuthorImage from '@/assets/images/author.jpg';
+import AuthorImage from '@/assets/images/nevertry.jpeg';
 
 export default function Sidebar({ className }: { className?: string }) {
   const router = useRouter();
@@ -58,10 +58,21 @@ export default function Sidebar({ className }: { className?: string }) {
       >
         {!open ? (
           <div onClick={() => setOpen(!open)}>
+            {/*
             <LogoIcon />
+        */}
           </div>
         ) : (
+          
+          <>
+
+          {/*
           <Logo />
+        */}
+
+          </>
+        
+
         )}
 
         <div className="md:hidden">
@@ -149,7 +160,7 @@ export default function Sidebar({ className }: { className?: string }) {
             >
               <AuthorCard
                 image={AuthorImage}
-                name="Cameron Williamson"
+                name="Wayne Park"
                 role="admin"
               />
             </motion.div>

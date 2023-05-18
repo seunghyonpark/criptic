@@ -8,7 +8,7 @@ import { useDrawer } from '@/components/drawer-views/context';
 import { Close } from '@/components/icons/close';
 import { menuItems } from '@/layouts/sidebar/_menu-items';
 //images
-import AuthorImage from '@/assets/images/author.jpg';
+import AuthorImage from '@/assets/images/nevertry.jpeg';
 
 export default function Sidebar({ className }: { className?: string }) {
   const { closeDrawer } = useDrawer();
@@ -20,7 +20,11 @@ export default function Sidebar({ className }: { className?: string }) {
       )}
     >
       <div className="relative flex h-24 items-center justify-between overflow-hidden px-6 py-4 2xl:px-8">
+        
+        {/*
         <Logo />
+      */}
+
         <div className="md:hidden">
           <Button
             title="Close"
@@ -39,7 +43,7 @@ export default function Sidebar({ className }: { className?: string }) {
         <div className="px-6 pb-5 2xl:px-8">
           <AuthorCard
             image={AuthorImage}
-            name="Cameron Williamson"
+            name="Wayne Park"
             role="admin"
           />
 

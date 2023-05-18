@@ -1,11 +1,12 @@
-import CollectionCover1 from '@/assets/images/collection/grid/1.jpg';
-import CollectionCover2 from '@/assets/images/collection/grid/2.jpg';
-import CollectionCover3 from '@/assets/images/collection/grid/3.jpg';
-import CollectionCover4 from '@/assets/images/collection/grid/4.jpg';
-import CollectionCover5 from '@/assets/images/collection/grid/5.jpg';
-import CollectionCover6 from '@/assets/images/collection/grid/6.jpg';
-import CollectionCover7 from '@/assets/images/collection/grid/7.jpg';
-import CollectionCover8 from '@/assets/images/collection/grid/8.jpg';
+import CollectionCover1 from '@/assets/images/collection/grid/Hrs_00006001.png';
+import CollectionCover2 from '@/assets/images/collection/grid/Hrs_00006002.png';
+import CollectionCover3 from '@/assets/images/collection/grid/Hrs_00006003.png';
+import CollectionCover4 from '@/assets/images/collection/grid/Hrs_00006004.png';
+import CollectionCover5 from '@/assets/images/collection/grid/Hrs_00006005.png';
+import CollectionCover6 from '@/assets/images/collection/grid/Hrs_00006006.png';
+import CollectionCover7 from '@/assets/images/collection/grid/Hrs_00006007.png';
+import CollectionCover8 from '@/assets/images/collection/grid/Hrs_00006007.png';
+
 
 import User1 from '@/assets/images/avatar/4.png';
 import User2 from '@/assets/images/avatar/2.png';
@@ -31,8 +32,8 @@ export const collections = [
     image: CollectionImage1,
     user: {
       avatar: User1,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
   {
@@ -45,8 +46,8 @@ export const collections = [
     image: CollectionImage2,
     user: {
       avatar: User2,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
   {
@@ -59,8 +60,8 @@ export const collections = [
     image: CollectionImage3,
     user: {
       avatar: User3,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
   {
@@ -73,8 +74,8 @@ export const collections = [
     image: CollectionImage4,
     user: {
       avatar: User4,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
   {
@@ -87,8 +88,8 @@ export const collections = [
     image: CollectionImage5,
     user: {
       avatar: User5,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
   {
@@ -101,8 +102,8 @@ export const collections = [
     image: CollectionImage6,
     user: {
       avatar: User4,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
   {
@@ -115,8 +116,8 @@ export const collections = [
     image: CollectionImage2,
     user: {
       avatar: User1,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
   {
@@ -129,8 +130,8 @@ export const collections = [
     image: CollectionImage1,
     user: {
       avatar: User2,
-      name: 'Cameronwilliamson',
-      slug: 'cameronwilliamson',
+      name: 'Waynepark',
+      slug: 'waynepark',
     },
   },
 ];

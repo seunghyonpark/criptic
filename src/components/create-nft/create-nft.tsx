@@ -21,7 +21,7 @@ import Avatar from '@/components/ui/avatar';
 import Preview from '@/components/create-nft/nft-preview';
 
 //images
-import AuthorImage from '@/assets/images/author.jpg';
+import AuthorImage from '@/assets/images/nevertry.jpeg';
 
 
 ///import NFT1 from '@/assets/images/nft/nft-1.jpg';
@@ -113,10 +113,10 @@ export default function CreateNFT() {
                 <Avatar
                   size="sm"
                   image={AuthorImage}
-                  alt="Cameronwilliamson"
+                  alt="Waynepark"
                   className="border-white bg-gray-300 ltr:mr-3 rtl:ml-3 dark:bg-gray-400"
                 />
-                @Cameronwilliamson
+                @Waynepark
               </div>
               <div className="relative block w-full">
                 <Image

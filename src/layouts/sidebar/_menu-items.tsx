@@ -21,22 +21,22 @@ export const menuItems = [
   {
     name: 'ASSET',
     icon: <CompassIcon />,
-    href: routes.search,
+    href: routes.searchHorse,
     dropdownItems: [
       {
         name: 'Horse',
         icon: <CompassIcon />,
-        href: routes.search,
+        href: routes.searchHorse,
       },
       {
         name: 'Jockey',
         icon: <PlusCircle />,
-        href: routes.search,
+        href: routes.searchJockey,
       },
       {
         name: 'Track',
         icon: <DiskIcon />,
-        href: routes.search,
+        href: routes.searchTrack,
       },
     ],
   },
@@ -73,6 +73,7 @@ export const menuItems = [
     icon: <PoolIcon />,
     href: routes.liquidity,
   },
+  /*
   {
     name: 'NFTs',
     icon: <CompassIcon />,
@@ -96,6 +97,7 @@ export const menuItems = [
     ],
   },
 
+
   {
     name: 'Vote',
     icon: <VoteIcon />,
@@ -115,4 +117,7 @@ export const menuItems = [
       },
     ],
   },
+  */
+
+
 ];

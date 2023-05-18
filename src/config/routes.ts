@@ -1,6 +1,10 @@
 const routes = {
   home: '/',
   horse: '/horse',
+  searchHorse: '/search-horse',
+  searchJockey: '/search-jockey',
+  searchTrack: '/search-track',
+
   minimal: '/minimal',
   livePricing: '/live-pricing',
   retro: '/retro',
