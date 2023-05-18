@@ -1,5 +1,7 @@
 import routes from '@/config/routes';
 import { HomeIcon } from '@/components/icons/home';
+import { HorseIcon } from '@/components/icons/horse';
+
 import { FarmIcon } from '@/components/icons/farm';
 import { PoolIcon } from '@/components/icons/pool';
 import { ProfileIcon } from '@/components/icons/profile';
@@ -12,10 +14,45 @@ import { LivePricing } from '@/components/icons/live-pricing';
 
 export const menuItems = [
   {
-    name: 'Home',
+    name: 'HOME',
     icon: <HomeIcon />,
     href: routes.home,
   },
+  {
+    name: 'ASSET',
+    icon: <CompassIcon />,
+    href: routes.search,
+    dropdownItems: [
+      {
+        name: 'Horse',
+        icon: <CompassIcon />,
+        href: routes.search,
+      },
+      {
+        name: 'Jockey',
+        icon: <PlusCircle />,
+        href: routes.search,
+      },
+      {
+        name: 'Track',
+        icon: <DiskIcon />,
+        href: routes.search,
+      },
+    ],
+  },
+
+  {
+    name: 'Profile',
+    icon: <ProfileIcon />,
+    href: routes.profile,
+  },
+  {
+    name: 'Horse',
+    icon: <HorseIcon />,
+    href: routes.horse,
+  },
+
+
   {
     name: 'Live Pricing',
     icon: <LivePricing />,
@@ -58,11 +95,7 @@ export const menuItems = [
       },
     ],
   },
-  {
-    name: 'Profile',
-    icon: <ProfileIcon />,
-    href: routes.profile,
-  },
+
   {
     name: 'Vote',
     icon: <VoteIcon />,

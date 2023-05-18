@@ -1,5 +1,6 @@
 const routes = {
   home: '/',
+  horse: '/horse',
   minimal: '/minimal',
   livePricing: '/live-pricing',
   retro: '/retro',

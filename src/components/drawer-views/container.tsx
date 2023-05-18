@@ -26,8 +26,10 @@ function renderDrawerContent(view: DRAWER_VIEW | string) {
 }
 
 export default function DrawersContainer() {
+  
   const router = useRouter();
   const { view, isOpen, closeDrawer } = useDrawer();
+
   useEffect(() => {
     // close search modal when route change
     router.events.on('routeChangeStart', closeDrawer);
@@ -36,6 +38,7 @@ export default function DrawersContainer() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
@@ -54,6 +57,7 @@ export default function DrawersContainer() {
         >
           <Dialog.Overlay className="fixed inset-0 bg-gray-700 bg-opacity-60 backdrop-blur" />
         </Transition.Child>
+
         <Transition.Child
           as={Fragment}
           enter="transform transition ease-out duration-300"
@@ -67,6 +71,7 @@ export default function DrawersContainer() {
             {view && renderDrawerContent(view)}
           </div>
         </Transition.Child>
+
       </Dialog>
     </Transition>
   );
