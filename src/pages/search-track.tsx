@@ -48,4 +48,4 @@ SearchTrackPage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export default SearchJockeyPage;
+export default SearchTrackPage;
