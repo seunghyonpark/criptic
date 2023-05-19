@@ -16,6 +16,10 @@ import routes from '@/config/routes';
 //images
 import AuthorImage from '@/assets/images/nevertry.jpeg';
 
+import Image from '@/components/ui/image';
+import logo from '@/assets/images/logo.png';
+
+
 export default function Sidebar({ className }: { className?: string }) {
   const router = useRouter();
   const {
@@ -58,9 +62,19 @@ export default function Sidebar({ className }: { className?: string }) {
       >
         {!open ? (
           <div onClick={() => setOpen(!open)}>
+
             {/*
             <LogoIcon />
         */}
+
+          <Image
+            src={logo}
+            alt="logo"
+            width={24}
+            height={24}
+            className=""
+          />
+
           </div>
         ) : (
           
@@ -69,6 +83,15 @@ export default function Sidebar({ className }: { className?: string }) {
           {/*
           <Logo />
         */}
+
+          <Image
+            src={logo}
+            alt="logo"
+            width={24}
+            height={24}
+            className=""
+          />
+
 
           </>
         

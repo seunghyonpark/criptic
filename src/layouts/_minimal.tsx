@@ -12,6 +12,10 @@ import { useDrawer } from '@/components/drawer-views/context';
 import { useWindowScroll } from '@/lib/hooks/use-window-scroll';
 import routes from '@/config/routes';
 
+import Image from '@/components/ui/image';
+import logo from '@/assets/images/logo.png';
+
+
 function NotificationButton() {
   return (
     <ActiveLink href={routes.notification}>
@@ -83,7 +87,19 @@ export function Header() {
               className="shadow-main dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white"
             />
           </div>
+
+          {/*
           <Logo />
+      */}
+          <Image
+            src={logo}
+            alt="logo"
+            width={24}
+            height={24}
+            className=""
+          />
+
+
           {isMounted && ['xs', 'sm', 'md', 'lg'].indexOf(breakpoint) == -1 && (
             <MenuItems />
           )}

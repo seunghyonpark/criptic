@@ -10,6 +10,10 @@ import { menuItems } from '@/layouts/sidebar/_menu-items';
 //images
 import AuthorImage from '@/assets/images/nevertry.jpeg';
 
+import Image from '@/components/ui/image';
+import logo from '@/assets/images/logo.png';
+
+
 export default function Sidebar({ className }: { className?: string }) {
   const { closeDrawer } = useDrawer();
   return (
@@ -24,6 +28,13 @@ export default function Sidebar({ className }: { className?: string }) {
         {/*
         <Logo />
       */}
+          <Image
+            src={logo}
+            alt="logo"
+            width={24}
+            height={24}
+            className=""
+          />
 
         <div className="md:hidden">
           <Button

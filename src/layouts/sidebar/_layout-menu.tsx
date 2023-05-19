@@ -14,6 +14,10 @@ import WalletConnect from '@/components/nft/wallet-connect';
 import { menuItems } from '@/layouts/sidebar/_menu-items';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
 
+import Image from '@/components/ui/image';
+import logo from '@/assets/images/logo.png';
+
+
 export function MenuItems() {
   const router = useRouter();
   const {
@@ -98,6 +102,15 @@ export default function DrawerMenu() {
 {/*
         <Logo />
   */}
+
+          <Image
+            src={logo}
+            alt="logo"
+            width={24}
+            height={24}
+            className=""
+          />
+
 
         <div className="md:hidden">
           <Button

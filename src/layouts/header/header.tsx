@@ -11,6 +11,9 @@ import { useDrawer } from '@/components/drawer-views/context';
 import WalletConnect from '@/components/nft/wallet-connect';
 import routes from '@/config/routes';
 
+import Image from '@/components/ui/image';
+import logo from '@/assets/images/logo.png';
+
 function NotificationButton() {
   return (
     <ActiveLink href={routes.notification}>
@@ -52,7 +55,18 @@ export default function Header({ className }: { className?: string }) {
             onClick={() => router.push(routes.home)}
             className="flex items-center xl:hidden"
           >
+            {/*
             <LogoIcon />
+      */}
+
+          <Image
+            src={logo}
+            alt="logo"
+            width={24}
+            height={24}
+            className=""
+          />
+
           </div>
           <div className="mx-2 block sm:mx-4 xl:hidden">
             <Hamburger
