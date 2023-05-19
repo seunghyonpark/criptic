@@ -17,6 +17,8 @@ import { Stats, OrbitControls, Environment, useGLTF } from '@react-three/drei';
 
 import { useControls } from 'leva';
 
+import Jockey from '@/components/jockey';
+
 const Models = [
   { title: 'Roan', url: './models/roan.glb' },
   //{ title: 'Drill', url: './models/roan.glb' },
@@ -96,16 +98,12 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
               />
   */}
 
+              {/*
               <Canvas
                 flat
                 linear
                 camera={{ position: [5, 0, 0.02], near: 0.05 }}
               >
-                {/*
-            <Canvas camera={{ position: [0, 0, -0.2], near: 0.025 }}>
-            
-              <Environment files="./img/workshop_1k.hdr" background />
-        */}
 
                 <group>
                   <Model
@@ -115,10 +113,10 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
 
                 <OrbitControls autoRotate />
 
-                {/*
-              <Stats />
-      */}
               </Canvas>
+              */}
+
+              <Jockey />
             </div>
           </div>
         </div>
