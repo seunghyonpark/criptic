@@ -10,13 +10,18 @@ import Trade from '@/components/ui/trade';
 import RootLayout from '@/layouts/_root-layout';
 
 const HorsePage: NextPageWithLayout = () => {
+
   let [toggleCoin, setToggleCoin] = useState(false);
+
+
   return (
     <>
+
       <NextSeo
         title="Farms"
         description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
       />
+      
       <Trade>
         <div className="mb-5 border-b border-dashed border-gray-200 pb-5 dark:border-gray-800 xs:mb-7 xs:pb-6">
           <div
@@ -67,8 +72,11 @@ const HorsePage: NextPageWithLayout = () => {
           SWAP
         </Button>
       </Trade>
+
     </>
   );
+
+
 };
 
 HorsePage.getLayout = function getLayout(page) {
