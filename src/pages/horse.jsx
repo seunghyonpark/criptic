@@ -21,9 +21,11 @@ export default function Horse() {
   });
 
   return (
-    <>
-      <Canvas camera={{ position: [0, 0, -0.2], near: 0.025 }}>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Canvas flat linear camera={{ position: [5, 0, 0.02], near: 0.05 }}>
         {/*
+      <Canvas camera={{ position: [0, 0, -0.2], near: 0.025 }}>
+       
         <Environment files="./img/workshop_1k.hdr" background />
   */}
 
@@ -33,10 +35,12 @@ export default function Horse() {
 
         <OrbitControls autoRotate />
 
+        {/*
         <Stats />
+*/}
       </Canvas>
 
       <span id="info">The {title} is selected.</span>
-    </>
+    </div>
   );
 }

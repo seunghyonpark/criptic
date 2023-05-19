@@ -10,12 +10,41 @@ import NftDropDown from '@/components/nft/nft-dropdown';
 import Avatar from '@/components/ui/avatar';
 import NftFooter from '@/components/nft/nft-footer';
 
+import React, { useRef } from 'react';
+
+import { Canvas } from '@react-three/fiber';
+import { Stats, OrbitControls, Environment, useGLTF } from '@react-three/drei';
+
+import { useControls } from 'leva';
+
+const Models = [
+  { title: 'Roan', url: './models/roan.glb' },
+  //{ title: 'Drill', url: './models/roan.glb' },
+  //{ title: 'Tape Measure', url: './models/roan.glb' },
+];
+
+function Model({ url }: { url: string }) {
+  ///const { nodes, materials, animations } = useGLTF('./models/roan.glb');
+  const { scene, animations } = useGLTF(url);
+
+  const group = useRef();
+
+  return (
+    <>
+      <group dispose={null}>
+        <primitive object={scene} />;
+      </group>
+    </>
+  );
+}
+
 type Avatar = {
   id: string | number;
   name: string;
   slug: string;
   logo: StaticImageData;
 };
+
 type NftDetailsProps = {
   isAuction?: boolean;
   image: StaticImageData;
@@ -45,12 +74,19 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
     block_chains,
   } = product;
 
+  const { title } = useControls({
+    title: {
+      options: Models.map(({ title }) => title),
+    },
+  });
+
   return (
     <div className="flex flex-grow">
       <div className="mx-auto flex w-full flex-grow flex-col transition-all xl:max-w-[1360px] 4xl:max-w-[1760px]">
         <div className="relative mb-5 flex flex-grow items-center justify-center md:pb-7 md:pt-4 ltr:md:left-0 ltr:md:pl-6 rtl:md:right-0 rtl:md:pr-6 lg:fixed lg:mb-0 lg:h-[calc(100%-96px)] lg:w-[calc(100%-492px)] ltr:lg:pl-8 rtl:lg:pr-8 xl:w-[calc(100%-550px)] ltr:xl:pl-[340px] ltr:xl:pr-12 rtl:xl:pl-12 rtl:xl:pr-[340px] ltr:2xl:pl-96 rtl:2xl:pr-96 3xl:w-[calc(100%-632px)] ltr:4xl:pl-0 rtl:4xl:pr-0">
           <div className="flex h-full max-h-full w-full items-center justify-center lg:max-w-[768px]">
             <div className="relative aspect-square max-h-full overflow-hidden rounded-lg">
+              {/*
               <Image
                 src={image}
                 alt={name}
@@ -58,6 +94,31 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
                 priority
                 className="h-full bg-gray-200 dark:bg-light-dark"
               />
+  */}
+
+              <Canvas
+                flat
+                linear
+                camera={{ position: [5, 0, 0.02], near: 0.05 }}
+              >
+                {/*
+            <Canvas camera={{ position: [0, 0, -0.2], near: 0.025 }}>
+            
+              <Environment files="./img/workshop_1k.hdr" background />
+        */}
+
+                <group>
+                  <Model
+                    url={Models[Models.findIndex((m) => m.title === title)].url}
+                  />
+                </group>
+
+                <OrbitControls autoRotate />
+
+                {/*
+              <Stats />
+      */}
+              </Canvas>
             </div>
           </div>
         </div>

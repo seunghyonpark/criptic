@@ -8,25 +8,17 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 
 ///import { Stats, OrbitControls, Environment, useGLTF } from '@react-three/drei';
 
-/*
-const Models = [
-    { title: 'Hammer', url: './models/roan.glb' },
-    //{ title: 'Drill', url: './models/roan.glb' },
-    //{ title: 'Tape Measure', url: './models/roan.glb' },
-];
+//import User1 from '@/assets/images/user-1.png';
+///import horse_roan from '@/assets/models/roan.glb';
 
-function Model({ url }) {
-    const { scene } = useGLTF(url);
-    return <primitive object={scene} />;
-  }
-*/
-
-const url = './models/roan.glb';
 
 export default function Model(props) {
   const group = useRef();
-  //////const { nodes, materials, animations } = useGLTF('./models/roan.glb');
-  const { nodes, materials, animations } = useGLTF(url);
+  const { nodes, materials, animations } = useGLTF('./models/roan.glb');
+  
+  ////const { nodes, materials, animations } = useGLTF(horse_roan);
+  ///const { nodes, materials, animations } = useGLTF('./src/assets/models/roan.glb');
+
   const { actions } = useAnimations(animations, group);
 
   return (
@@ -60,6 +52,8 @@ export default function Model(props) {
   );
 }
 
-//////useGLTF.preload('./models/roan.glb');
+useGLTF.preload('./models/roan.glb');
+//useGLTF.preload(horse_roan);
+//useGLTF.preload('./src/assets/models/roan.glb');
 
-useGLTF.preload(url);
+
