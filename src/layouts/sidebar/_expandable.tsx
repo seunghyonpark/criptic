@@ -84,13 +84,16 @@ export default function Sidebar({ className }: { className?: string }) {
           <Logo />
         */}
 
-          <Image
-            src={logo}
-            alt="logo"
-            width={24}
-            height={24}
-            className=""
-          />
+          <div className='flex flex-row gap-2'>
+            <Image
+              src={logo}
+              alt="logo"
+              width={24}
+              height={24}
+              className=""
+            />
+            <span>Granderby</span>
+          </div>
 
 
           </>
