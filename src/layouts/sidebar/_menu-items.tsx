@@ -14,6 +14,8 @@ import { CompassIcon } from '@/components/icons/compass';
 import { LivePricing } from '@/components/icons/live-pricing';
 import { Ranking } from '@/components/icons/ranking';
 
+import { RaceIcon } from '@/components/icons/race-icon';
+
 export const menuItems = [
   {
     name: 'HOME',
@@ -49,16 +51,41 @@ export const menuItems = [
   },
 
   {
+    name: 'RACE',
+    icon: <RaceIcon />,
+    href: routes.race,
+  },
+
+  {
+    name: 'MARKET',
+    icon: <CompassIcon />,
+    href: routes.searchHorse,
+    dropdownItems: [
+      {
+        name: 'Horse',
+        icon: <CompassIcon />,
+        href: routes.searchHorse,
+      },
+      {
+        name: 'Jockey',
+        icon: <PlusCircle />,
+        href: routes.searchJockey,
+      },
+      {
+        name: 'Track',
+        icon: <DiskIcon />,
+        href: routes.searchTrack,
+      },
+    ],
+  },
+
+  {
     name: 'Profile',
     icon: <ProfileIcon />,
     href: routes.profile,
   },
-  {
-    name: 'Horse',
-    icon: <HorseIcon />,
-    href: routes.horse,
-  },
 
+  /*
   {
     name: 'Live Pricing',
     icon: <Ranking />,
@@ -79,6 +106,8 @@ export const menuItems = [
     icon: <PoolIcon />,
     href: routes.liquidity,
   },
+  */
+
   /*
   {
     name: 'NFTs',
