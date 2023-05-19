@@ -8,9 +8,25 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 
 ///import { Stats, OrbitControls, Environment, useGLTF } from '@react-three/drei';
 
+/*
+const Models = [
+    { title: 'Hammer', url: './models/roan.glb' },
+    //{ title: 'Drill', url: './models/roan.glb' },
+    //{ title: 'Tape Measure', url: './models/roan.glb' },
+];
+
+function Model({ url }) {
+    const { scene } = useGLTF(url);
+    return <primitive object={scene} />;
+  }
+*/
+
+const url = './models/roan.glb';
+
 export default function Model(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('./models/roan.glb');
+  //////const { nodes, materials, animations } = useGLTF('./models/roan.glb');
+  const { nodes, materials, animations } = useGLTF(url);
   const { actions } = useAnimations(animations, group);
 
   return (
@@ -44,4 +60,6 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload('./models/roan.glb');
+//////useGLTF.preload('./models/roan.glb');
+
+useGLTF.preload(url);
