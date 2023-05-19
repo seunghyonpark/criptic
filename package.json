@@ -1,6 +1,6 @@
 {
-  "name": "Criptic",
-  "version": "2.0.0",
+  "name": "granderby",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "clean": "rimraf \"{node_modules,.next,out.cache}\"",
@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@google/model-viewer": "^3.1.1",
     "@headlessui/react": "^1.7.13",
     "@hookform/resolvers": "^2.9.11",
     "@next/font": "^13.2.4",
