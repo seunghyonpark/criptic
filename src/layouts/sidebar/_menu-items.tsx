@@ -56,6 +56,7 @@ export const menuItems = [
     href: routes.race,
   },
 
+  /*
   {
     name: 'MARKET',
     icon: <CompassIcon />,
@@ -78,6 +79,7 @@ export const menuItems = [
       },
     ],
   },
+  */
 
   {
     name: 'Profile',

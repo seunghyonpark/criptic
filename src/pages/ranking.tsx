@@ -1,9 +1,7 @@
 import type { NextPageWithLayout } from '@/types';
 import { NextSeo } from 'next-seo';
 import Button from '@/components/ui/button';
-import NotificationCard, {
-  NotificationCardProps,
-} from '@/components/ui/notification-card';
+import RankingCard, { RankingCardProps } from '@/components/ui/ranking-card';
 import RootLayout from '@/layouts/_root-layout';
 
 //images
@@ -18,7 +16,7 @@ import User7 from '@/assets/images/avatar/3.png';
 const notifications = [
   {
     id: 1,
-    type: 'followed',
+    type: '',
     actor: {
       name: 'dolcemariposa',
       avatar: User1,
@@ -29,7 +27,7 @@ const notifications = [
   },
   {
     id: 2,
-    type: 'liked',
+    type: '',
     actor: {
       name: 'pimptronot',
       avatar: User2,
@@ -40,7 +38,7 @@ const notifications = [
   },
   {
     id: 3,
-    type: 'purchased',
+    type: '',
     actor: {
       name: 'centralgold',
       avatar: User3,
@@ -51,7 +49,7 @@ const notifications = [
   },
   {
     id: 4,
-    type: 'followed',
+    type: '',
     actor: {
       name: 'theline',
       avatar: User4,
@@ -62,7 +60,7 @@ const notifications = [
   },
   {
     id: 5,
-    type: 'followed',
+    type: '',
     actor: {
       name: 'daniel',
       avatar: User5,
@@ -73,7 +71,7 @@ const notifications = [
   },
   {
     id: 6,
-    type: 'followed',
+    type: '',
     actor: {
       name: 'andrea',
       avatar: User6,
@@ -84,7 +82,7 @@ const notifications = [
   },
   {
     id: 7,
-    type: 'followed',
+    type: '',
     actor: {
       name: 'piacquadio',
       avatar: User7,
@@ -122,10 +120,8 @@ const RankingPage: NextPageWithLayout = () => {
         </div>
 
         {notifications.map((notification) => {
-          const notificationItem = notification as NotificationCardProps;
-          return (
-            <NotificationCard key={notification.id} {...notificationItem} />
-          );
+          const notificationItem = notification as RankingCardProps;
+          return <RankingCard key={notification.id} {...notificationItem} />;
         })}
       </div>
     </>

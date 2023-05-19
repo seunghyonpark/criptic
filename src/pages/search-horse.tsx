@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import type { NextPageWithLayout } from '@/types';
-import Search from '@/components/search/search';
+import SearchHorse from '@/components/search/search-horse';
 import { useLayout } from '@/lib/hooks/use-layout';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
 import RetroSearch from '@/components/search/retro-search';
@@ -39,7 +39,7 @@ const SearchHorsePage: NextPageWithLayout<
         description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
       />
 
-      <Search />
+      <SearchHorse />
     </>
   );
 };
