@@ -30,9 +30,12 @@ export default function Horse() {
         <group>
           <Model url={Models[Models.findIndex((m) => m.title === title)].url} />
         </group>
+
         <OrbitControls autoRotate />
+
         <Stats />
       </Canvas>
+
       <span id="info">The {title} is selected.</span>
     </>
   );
