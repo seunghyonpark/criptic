@@ -10,13 +10,20 @@ import { ExchangeIcon } from '@/components/icons/exchange';
 import { VoteIcon } from '@/components/icons/vote-icon';
 import { PlusCircle } from '@/components/icons/plus-circle';
 import { CompassIcon } from '@/components/icons/compass';
+
 import { LivePricing } from '@/components/icons/live-pricing';
+import { Ranking } from '@/components/icons/ranking';
 
 export const menuItems = [
   {
     name: 'HOME',
     icon: <HomeIcon />,
     href: routes.home,
+  },
+  {
+    name: 'RANKING',
+    icon: <Ranking />,
+    href: routes.ranking,
   },
   {
     name: 'ASSET',
@@ -52,10 +59,9 @@ export const menuItems = [
     href: routes.horse,
   },
 
-
   {
     name: 'Live Pricing',
-    icon: <LivePricing />,
+    icon: <Ranking />,
     href: routes.livePricing,
   },
   {
@@ -118,6 +124,4 @@ export const menuItems = [
     ],
   },
   */
-
-
 ];
