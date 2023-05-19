@@ -18,6 +18,8 @@ import '@/assets/css/globals.css';
 import '@/assets/css/range-slider.css';
 import { useState } from 'react';
 
+import Script from 'next/script';
+
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
@@ -30,9 +32,12 @@ type AppPropsWithLayout = AppProps & {
 // });
 
 function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
+  // inject the next app with the latest version of `@google/model-viewer`
+
   //could remove this if you don't need to page level layout
   const getLayout = Component.getLayout ?? ((page) => page);
   const [queryClient] = useState(() => new QueryClient());
+
   return (
     <>
       <Head>
@@ -43,7 +48,14 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
         />
         <title>Criptic - React Next Web3 NFT Crypto Dashboard Template</title>
       </Head>
-      
+
+      <Script
+        async
+        strategy="afterInteractive"
+        type="module"
+        src="https://unpkg.com/@google/model-viewer@^2.1.1/dist/model-viewer.min.js"
+      />
+
       <QueryClientProvider client={queryClient}>
         <ThemeProvider
           attribute="class"
@@ -59,11 +71,8 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
             <DrawersContainer />
             {/* </div> */}
           </WalletProvider>
-
         </ThemeProvider>
-
       </QueryClientProvider>
-
     </>
   );
 }
