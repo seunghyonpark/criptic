@@ -255,3 +255,6 @@ Styles for Swiper slider
     --swiper-pagination-bullet-width: 20px;
   }
 }
+
+
+@import url('./../fonts/stylesheet.css');

@@ -15,6 +15,8 @@ export default function Model({ ...props }) {
 
   const { actions, mixer } = useAnimations(animations, group);
 
+  ///console.log("nodes=", nodes);
+
   //console.log(animations);
   //console.log(actions);
 

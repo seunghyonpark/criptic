@@ -143,11 +143,12 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
               <Canvas camera={{ position: [90, 120, 200], near: 1 }}>
               */}
 
-              <div className="mt-10 h-full">
+              <div className="mt-0 h-full">
                 <Canvas
-                  shadows
+                  //style={{ background: "#ff0000" }}
+                  //shadows
                   dpr={[1, 2]}
-                  camera={{ position: [2.0, 0.0, 0.2], fov: 50 }}
+                  camera={{ position: [2.5, 0.0, 0.1], fov: 50 }}
                 >
                   <ambientLight intensity={0.3} />
 
@@ -166,7 +167,9 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
                     <Environment preset="city" />
                   </Suspense>
 
+                  {/*
                   <OrbitControls autoRotate />
+            */}
                 </Canvas>
               </div>
             </div>
