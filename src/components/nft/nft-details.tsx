@@ -167,9 +167,7 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
                     <Environment preset="city" />
                   </Suspense>
 
-                  {/*
                   <OrbitControls autoRotate />
-            */}
                 </Canvas>
               </div>
             </div>
