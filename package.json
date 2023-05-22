@@ -1,6 +1,7 @@
 {
   "name": "granderby",
   "version": "1.0.0",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "clean": "rimraf \"{node_modules,.next,out.cache}\"",

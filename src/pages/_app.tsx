@@ -18,8 +18,6 @@ import '@/assets/css/globals.css';
 import '@/assets/css/range-slider.css';
 import { useState } from 'react';
 
-import Script from 'next/script';
-
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
@@ -46,15 +44,8 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
           name="viewport"
           content="width=device-width, initial-scale=1 maximum-scale=1"
         />
-        <title>Criptic - React Next Web3 NFT Crypto Dashboard Template</title>
+        <title>Granderby - Asset Manager</title>
       </Head>
-
-      <Script
-        async
-        strategy="afterInteractive"
-        type="module"
-        src="https://unpkg.com/@google/model-viewer@^2.1.1/dist/model-viewer.min.js"
-      />
 
       <QueryClientProvider client={queryClient}>
         <ThemeProvider
