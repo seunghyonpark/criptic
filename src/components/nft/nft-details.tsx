@@ -302,6 +302,7 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
             </div>
           </div>
 
+          {/*
           <NftFooter
             className="hidden md:block"
             currentBid={nftData?.bids[nftData?.bids?.length - 1]}
@@ -309,6 +310,7 @@ export default function NftDetails({ product }: { product: NftDetailsProps }) {
             isAuction={isAuction}
             price={price}
           />
+                    */}
         </div>
 
         {/*

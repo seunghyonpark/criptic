@@ -5,7 +5,14 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 export default function Model({ ...props }) {
   const group = useRef();
 
-  const { scene, animations } = useGLTF('./models/roan.glb');
+  ///const { scene, animations } = useGLTF('./models/roan.glb');
+
+  const { scene, animations } = useGLTF(
+    'https://horsegen.s3.us-west-1.amazonaws.com/reveal-assets/roan.glb'
+  );
+
+  //https://horsegen.s3.us-west-1.amazonaws.com/reveal-assets/roan.glb
+
   const { actions, mixer } = useAnimations(animations, group);
 
   //console.log(animations);
