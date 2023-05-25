@@ -22,10 +22,6 @@ class CustomDocument extends Document {
             rel="stylesheet"
           />
     */}
-
-          <link rel="stylesheet" type="text/css" href="/css/aos.min.css" />
-          <link rel="stylesheet" type="text/css" href="/css/swiper.min.css" />
-          <link rel="stylesheet" type="text/css" href="/css/granderby.css" />
         </Head>
 
         <body>
