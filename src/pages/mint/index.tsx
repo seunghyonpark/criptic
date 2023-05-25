@@ -86,6 +86,7 @@ const MintPage: NextPageWithLayout = () => {
 
         if (isValid) {
           const res = await fetch('/api/blogPosts');
+          ///const res = await fetch('/apiBlogPosts');
           const posts = await res.json();
           setPosts(posts.data);
           setHasNFT(true);
@@ -95,8 +96,9 @@ const MintPage: NextPageWithLayout = () => {
         }
       }
     };
+
     checkNFT();
-  }, [address, contractAddress, sdk]);
+  }, [address]);
 
   // Fixes Hydration Issues
   useEffect(() => {

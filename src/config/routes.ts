@@ -30,6 +30,9 @@ const routes = {
   coinDetails: '/coin-details',
 
   mint: '/mint',
+
+  apiBlogPosts: '/api/blogPosts',
+  api: '/api',
 };
 
 export default routes;
