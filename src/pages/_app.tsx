@@ -10,12 +10,19 @@ import SettingsButton from '@/components/settings/settings-button';
 import SettingsDrawer from '@/components/settings/settings-drawer';
 import { WalletProvider } from '@/lib/hooks/use-connect';
 import 'overlayscrollbars/overlayscrollbars.css';
+
 // base css file
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '@/assets/css/scrollbar.css';
 import '@/assets/css/globals.css';
 import '@/assets/css/range-slider.css';
+
+import '@/assets-landing/css/aos.min.css';
+import '@/assets-landing/css/granderby.css';
+import '@/assets-landing/css/popup.css';
+import '@/assets-landing/css/swiper.min.css';
+
 import { useState } from 'react';
 
 type AppPropsWithLayout = AppProps & {
