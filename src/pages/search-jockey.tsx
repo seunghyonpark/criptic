@@ -4,7 +4,9 @@ import type { NextPageWithLayout } from '@/types';
 import Search from '@/components/search/search';
 import { useLayout } from '@/lib/hooks/use-layout';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
+
 import RetroSearch from '@/components/search/retro-search';
+
 import RootLayout from '@/layouts/_root-layout';
 
 export const getStaticProps: GetStaticProps = async () => {
