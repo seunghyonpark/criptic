@@ -31,6 +31,11 @@ class CustomDocument extends Document {
           <script src="/js/jquery-latest.js"></script>
           <script src="/js/swiper.min.js"></script>
           <script src="/js/aos.min.js"></script>
+
+          <script src="/js/gsap.min.js"></script>
+          <script src="/js/ScrollTrigger.min.js"></script>
+          <script src="/js/common.js"></script>
+          <script src="https://cdn.rawgit.com/wilddeer/stickyfill/master/dist/stickyfill.min.js"></script>
         </body>
       </Html>
     );

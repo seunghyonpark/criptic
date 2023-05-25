@@ -47,6 +47,8 @@ const dummyPosts: BlogPost[] = [
 ///const HomePage = () => {
 
 const MintPage: NextPageWithLayout = () => {
+  console.log('MintPage=========');
+
   const [loading, setLoading] = useState(true);
   const [hasNFT, setHasNFT] = useState(false);
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -94,7 +96,7 @@ const MintPage: NextPageWithLayout = () => {
       }
     };
     checkNFT();
-  }, [address]);
+  }, [address, contractAddress, sdk]);
 
   // Fixes Hydration Issues
   useEffect(() => {

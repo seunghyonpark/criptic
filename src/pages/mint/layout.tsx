@@ -16,7 +16,12 @@ const inter = Inter({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
-  const clientId = process.env.NEXT_PUBLIC_CLIENT_ID!;
+  const clientId =
+    process.env.NEXT_PUBLIC_CLIENT_ID === undefined
+      ? ''
+      : process.env.NEXT_PUBLIC_CLIENT_ID;
+
+  console.log('clientId=', clientId);
 
   useEffect(() => {
     setLoading(false);
@@ -36,7 +41,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body className={`${inter.className} bg-dark-main text-light-main`}>
         <PaperEmbeddedWalletProvider
-          appName="Paper RainbowKit Provider Example"
+          appName="Paper RainbowKit Provider"
           walletOptions={{
             clientId: clientId,
             chain: 'Mumbai',

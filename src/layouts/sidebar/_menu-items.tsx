@@ -91,6 +91,11 @@ export const menuItems = [
     icon: <FarmIcon />,
     href: routes.landing,
   },
+  {
+    name: 'Minting',
+    icon: <FarmIcon />,
+    href: routes.mint,
+  },
 
   /*
   {
