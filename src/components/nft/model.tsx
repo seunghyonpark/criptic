@@ -6,7 +6,9 @@ export default function Model({ ...props }) {
   const group = useRef();
 
   //const { scene, animations } = useGLTF('./models/roan.glb');
-  const { scene, animations } = useGLTF('./models/glbTest.glb');
+  ///const { scene, animations } = useGLTF('./models/glbTest.glb');
+
+  const { scene, animations } = useGLTF('./models/jockey.glb');
 
   //const { scene, animations } = useGLTF(
   //  'https://horsegen.s3.us-west-1.amazonaws.com/reveal-assets/roan.glb'
@@ -48,11 +50,13 @@ export default function Model({ ...props }) {
       {/*
       <primitive ref={group} object={scene} dispose={null} scale={0.4} />
   */}
-      <primitive ref={group} object={scene} dispose={null} scale={0.002} />
+      <primitive ref={group} object={scene} dispose={null} scale={0.05} />
     </>
   );
 }
 
 ////useGLTF.preload('./models/roan.glb');
 
-useGLTF.preload('./models/glbTest.glb');
+//useGLTF.preload('./models/glbTest.glb');
+
+useGLTF.preload('./models/jockey.glb');

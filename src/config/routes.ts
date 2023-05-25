@@ -27,6 +27,8 @@ const routes = {
   history: '/profile?view=history',
   classic: '/classic',
   coinDetails: '/coin-details',
+
+  mint: '/mint',
 };
 
 export default routes;
