@@ -23,14 +23,18 @@ class CustomDocument extends Document {
           />
     */}
 
-          <link rel="stylesheet" type="text/css" href="../css/aos.min.css" />
-          <link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
-          <link rel="stylesheet" type="text/css" href="../css/granderby.css" />
+          <link rel="stylesheet" type="text/css" href="/css/aos.min.css" />
+          <link rel="stylesheet" type="text/css" href="/css/swiper.min.css" />
+          <link rel="stylesheet" type="text/css" href="/css/granderby.css" />
         </Head>
 
         <body>
           <Main />
           <NextScript />
+
+          <script src="/js/jquery-latest.js"></script>
+          <script src="/js/swiper.min.js"></script>
+          <script src="/js/aos.min.js"></script>
         </body>
       </Html>
     );
