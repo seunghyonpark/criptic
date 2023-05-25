@@ -20,6 +20,7 @@ const routes = {
   notification: '/notifications',
   vote: '/vote',
   proposals: '/proposals',
+  landing: '/landing',
   createProposal: '/proposals/create',
   charts: '/charts',
   profile: '/profile',
