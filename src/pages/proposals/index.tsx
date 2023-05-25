@@ -81,12 +81,14 @@ const ProposalsPage: NextPageWithLayout = () => {
       path: 'past',
     },
   ];
+
   return (
     <>
       <NextSeo
         title="Proposal"
         description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
       />
+
       <section className="mx-auto w-full max-w-[1160px] text-sm ">
         <header
           className={cn(

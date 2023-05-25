@@ -41,6 +41,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
 
   //could remove this if you don't need to page level layout
   const getLayout = Component.getLayout ?? ((page) => page);
+
   const [queryClient] = useState(() => new QueryClient());
 
   return (
@@ -62,7 +63,9 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
         >
           <WalletProvider>
             {/* <div className={`${firaCode.variable} font-body`}> */}
+
             {getLayout(<Component {...pageProps} />)}
+
             <SettingsButton />
             <SettingsDrawer />
             <ModalsContainer />

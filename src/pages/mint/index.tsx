@@ -54,7 +54,10 @@ const MintPage: NextPageWithLayout = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   // Thirdweb Stuff
-  const sdk = new ThirdwebSDK('mumbai');
+  //const sdk = new ThirdwebSDK('mumbai');
+
+  const sdk = new ThirdwebSDK('goerli');
+
   const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS!;
   const shareableLink = process.env.NEXT_PUBLIC_SHAREABLE_LINK!;
   const minimumBalance = 1;
