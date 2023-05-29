@@ -1,5 +1,9 @@
-import CoverImage from '@/assets/images/profile-cover.jpg';
-import AuthorImage from '@/assets/images/nevertry.jpeg';
+///import CoverImage from '@/assets/images/profile-cover.jpg';
+import CoverImage from '@/assets/images/arena.png';
+
+//import AuthorImage from '@/assets/images/nevertry.jpeg';
+import AuthorImage from '@/assets/images/logo.png';
+
 import { Instagram } from '@/components/icons/brands/instagram';
 import { Twitter } from '@/components/icons/brands/twitter';
 import { Facebook } from '@/components/icons/brands/facebook';

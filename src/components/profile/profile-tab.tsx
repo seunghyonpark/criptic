@@ -37,6 +37,7 @@ const tabMenu = [
     title: 'Collection',
     path: 'collection',
   },
+  /*
   {
     title: 'Portfolio',
     path: 'portfolio',
@@ -45,6 +46,7 @@ const tabMenu = [
     title: 'History',
     path: 'history',
   },
+  */
 ];
 
 export default function ProfileTab() {
@@ -56,8 +58,13 @@ export default function ProfileTab() {
     nftDropContractAddress,
     'nft-drop'
   );
-
   const { data: ownedNfts } = useOwnedNFTs(nftDropContract, address);
+
+  const { contract: tokenContract } = useContract(
+    tokenContractAddress,
+    'token'
+  );
+  const { data: tokenBalance } = useTokenBalance(tokenContract, address);
 
   return (
     <ParamTab tabMenu={tabMenu}>
@@ -134,6 +141,7 @@ export default function ProfileTab() {
           </div>
         </div>
       </TabPanel>
+
       <TabPanel className="focus:outline-none">
         <div className="space-y-8 xl:space-y-9">
           <TransactionSearchForm />
