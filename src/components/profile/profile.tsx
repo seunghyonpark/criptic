@@ -9,9 +9,28 @@ import AnchorLink from '@/components/ui/links/anchor-link';
 import Avatar from '@/components/ui/avatar';
 import ProfileTab from '@/components/profile/profile-tab';
 
+import {
+  nftDropContractAddress,
+  stakingContractAddress,
+  tokenContractAddress,
+} from '../../config/contractAddresses';
+
+import {
+  ConnectWallet,
+  useDisconnect,
+  ThirdwebNftMedia,
+  useAddress,
+  useContract,
+  useContractRead,
+  useOwnedNFTs,
+  useTokenBalance,
+  Web3Button,
+} from '@thirdweb-dev/react';
+
 export default function Profile() {
   const [copyButtonStatus, setCopyButtonStatus] = useState(false);
   const [_, copyToClipboard] = useCopyToClipboard();
+
   function handleCopyToClipboard() {
     copyToClipboard(authorData.wallet_key);
     setCopyButtonStatus(true);
@@ -19,6 +38,16 @@ export default function Profile() {
       setCopyButtonStatus(copyButtonStatus);
     }, 2500);
   }
+
+  const address = useAddress();
+
+  const { contract: nftDropContract } = useContract(
+    nftDropContractAddress,
+    'nft-drop'
+  );
+
+  const { data: ownedNfts } = useOwnedNFTs(nftDropContract, address);
+
   return (
     <div className="flex w-full flex-col pt-4 md:flex-row md:pt-10 lg:flex-row 3xl:pt-12">
       <div className="shrink-0 border-dashed border-gray-200 dark:border-gray-700 md:w-72 ltr:md:border-r md:ltr:pr-7 rtl:md:border-l md:rtl:pl-7 lg:ltr:pr-10 lg:rtl:pl-10 2xl:w-80 3xl:w-96 3xl:ltr:pr-14 3xl:rtl:pl-14">
@@ -34,7 +63,8 @@ export default function Profile() {
               #{authorData?.id}
             </div>
             <div className="text truncate text-ellipsis bg-center text-xs text-gray-500 ltr:pl-4 rtl:pr-4 dark:text-gray-300 sm:text-sm">
-              {authorData?.wallet_key}
+              {address}
+              {/*authorData?.wallet_key*/}
             </div>
             <div
               title="Copy Address"
@@ -106,9 +136,11 @@ export default function Profile() {
         </div>
         <AuthorInformation className="hidden md:block" data={authorData} />
       </div>
-      <div className="grow pt-6 pb-9 md:-mt-2.5 md:pt-1.5 md:pb-0 md:ltr:pl-7 md:rtl:pr-7 lg:ltr:pl-10 lg:rtl:pr-10 3xl:ltr:pl-14 3xl:rtl:pr-14">
+
+      <div className="grow pb-9 pt-6 md:-mt-2.5 md:pb-0 md:pt-1.5 md:ltr:pl-7 md:rtl:pr-7 lg:ltr:pl-10 lg:rtl:pr-10 3xl:ltr:pl-14 3xl:rtl:pr-14">
         <ProfileTab />
       </div>
+
       <AuthorInformation data={authorData} />
     </div>
   );
