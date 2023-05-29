@@ -10,7 +10,7 @@ const withPWA = require('next-pwa')({
 const nextConfig = withPWA({
   reactStrictMode: true,
   images: {
-    domains: ['assets.coingecko.com'],
+    domains: ['assets.coingecko.com', 'nft-cdn.alchemy.com', 'ipfs.io'],
   },
   ...(process.env.NODE_ENV === 'production' && {
     typescript: {

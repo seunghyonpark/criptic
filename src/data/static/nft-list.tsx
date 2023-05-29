@@ -13,6 +13,53 @@ import NFT2 from '@/assets/images/nft/Hrs_00006001.png';
 import NFT3 from '@/assets/images/nft/Hrs_00006002.png';
 import NFT4 from '@/assets/images/nft/Hrs_00006003.png';
 
+import { nftDropContractAddress } from '../../config/contractAddresses';
+
+import { Network, Alchemy } from 'alchemy-sdk';
+
+const settings = {
+  apiKey: 'XBY-aoD3cF_vjy6le186jtpbWDIqSvrH', // Replace with your Alchemy API Key.
+  network: Network.MATIC_MAINNET, // Replace with your network.
+};
+
+const alchemy = new Alchemy(settings);
+
+const main = async () => {
+  const response = await alchemy.nft.getNftsForContract(nftDropContractAddress);
+
+  //Logging the response to the console
+
+  ///setHorses(response.nfts)
+
+  const NFTList = response.nfts.map((nft) => {
+    const { contract, title, tokenType, tokenId, description, media } = nft;
+
+    return {
+      id: tokenId,
+      author: 'waynepark',
+      authorImage: AuthorImage,
+      image: media[0]?.gateway
+        ? media[0]?.gateway
+        : 'https://via.placeholder.com/500',
+      name: title,
+      collection: contract.openSea?.collectionName,
+
+      contract: contract.address,
+      symbol: contract.symbol,
+      media: media[0]?.gateway
+        ? media[0]?.gateway
+        : 'https://via.placeholder.com/500',
+      collectionName: contract.openSea?.collectionName,
+      verified: contract.openSea?.safelistRequestStatus,
+      tokenType,
+      tokenId,
+      title,
+      description,
+      format: media[0]?.format ? media[0]?.format : 'png',
+    };
+  });
+};
+
 export const NFTList = [
   {
     id: 1,

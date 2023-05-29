@@ -38,6 +38,7 @@ export default function SearchHorse() {
               </div>
             </div>
           </div>
+
           <Feeds />
         </div>
 

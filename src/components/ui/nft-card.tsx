@@ -7,7 +7,7 @@ import { StaticImageData } from 'next/image';
 type NFTGridProps = {
   author: string;
   authorImage: StaticImageData;
-  image: StaticImageData;
+  image: StaticImageData | string;
   name: string;
   collection: string;
   price: string;
@@ -28,18 +28,27 @@ export default function NFTGrid({
           href="/"
           className="flex items-center text-sm font-medium text-gray-600 transition hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
         >
+          {/*
           <Avatar
             image={authorImage}
             alt={name}
             size="sm"
             className="text-ellipsis ltr:mr-3 rtl:ml-3 dark:border-gray-500"
           />
-          <span className="overflow-hidden text-ellipsis">@{author}</span>
+  */}
+
+          <span className="overflow-hidden text-ellipsis">{author}</span>
         </AnchorLink>
       </div>
 
       <AnchorLink href="/nft-details" className="relative block w-full">
-        <Image src={image} placeholder="blur" width={450} height={450} alt="" />
+        <Image
+          src={image}
+          //placeholder="blur"
+          width={450}
+          height={450}
+          alt=""
+        />
       </AnchorLink>
 
       <div className="p-5">
