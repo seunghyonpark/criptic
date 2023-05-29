@@ -36,7 +36,9 @@ export default function TransactionHistoryCard({ item }: { item: CardProps }) {
     transactionAmount,
     transactionType,
   } = item ?? {};
+
   const bgColor = transactionType === 'credited' ? '#D2D786' : '#F2C672';
+
   return (
     <div className="rounded-lg bg-white p-4 text-sm shadow-card dark:bg-light-dark sm:p-5 md:p-6">
       <div className="flex items-center justify-between border-b border-dashed border-gray-200 pb-3.5 dark:border-gray-700 sm:pb-5">

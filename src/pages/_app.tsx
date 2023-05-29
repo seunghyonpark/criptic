@@ -9,6 +9,10 @@ import DrawersContainer from '@/components/drawer-views/container';
 import SettingsButton from '@/components/settings/settings-button';
 import SettingsDrawer from '@/components/settings/settings-drawer';
 import { WalletProvider } from '@/lib/hooks/use-connect';
+
+import { ThirdwebProvider } from '@thirdweb-dev/react';
+import { PaperEmbeddedWalletProvider } from '@paperxyz/embedded-wallet-service-rainbowkit';
+
 import 'overlayscrollbars/overlayscrollbars.css';
 
 // base css file
@@ -44,6 +48,11 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const [queryClient] = useState(() => new QueryClient());
 
+  const clientId =
+    process.env.NEXT_PUBLIC_CLIENT_ID === undefined
+      ? ''
+      : process.env.NEXT_PUBLIC_CLIENT_ID;
+
   return (
     <>
       <Head>
@@ -61,17 +70,35 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
           enableSystem={false}
           defaultTheme="light"
         >
-          <WalletProvider>
-            {/* <div className={`${firaCode.variable} font-body`}> */}
+          {/*
 
-            {getLayout(<Component {...pageProps} />)}
+        <PaperEmbeddedWalletProvider
+          appName="Paper RainbowKit Provider"
+          walletOptions={{
+            clientId: clientId,
+            ///chain: 'Mumbai',
+            chain: 'Goerli',
+          }}
+        >
+        */}
 
-            <SettingsButton />
-            <SettingsDrawer />
-            <ModalsContainer />
-            <DrawersContainer />
-            {/* </div> */}
-          </WalletProvider>
+          <ThirdwebProvider activeChain="polygon">
+            <WalletProvider>
+              {/* <div className={`${firaCode.variable} font-body`}> */}
+
+              {getLayout(<Component {...pageProps} />)}
+
+              <SettingsButton />
+              <SettingsDrawer />
+              <ModalsContainer />
+              <DrawersContainer />
+              {/* </div> */}
+            </WalletProvider>
+          </ThirdwebProvider>
+
+          {/*   
+        </PaperEmbeddedWalletProvider>
+      */}
         </ThemeProvider>
       </QueryClientProvider>
     </>

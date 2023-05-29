@@ -86,11 +86,13 @@ export const menuItems = [
     icon: <ProfileIcon />,
     href: routes.profile,
   },
+  /*
   {
     name: 'Landing',
     icon: <FarmIcon />,
     href: routes.landing,
   },
+  */
   {
     name: 'Minting',
     icon: <FarmIcon />,

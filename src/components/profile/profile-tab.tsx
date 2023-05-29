@@ -14,6 +14,24 @@ import {
   authorProtocols,
 } from '@/data/static/author-profile';
 
+import {
+  nftDropContractAddress,
+  stakingContractAddress,
+  tokenContractAddress,
+} from '../../config/contractAddresses';
+
+import {
+  ConnectWallet,
+  useDisconnect,
+  ThirdwebNftMedia,
+  useAddress,
+  useContract,
+  useContractRead,
+  useOwnedNFTs,
+  useTokenBalance,
+  Web3Button,
+} from '@thirdweb-dev/react';
+
 const tabMenu = [
   {
     title: 'Collection',
@@ -31,6 +49,16 @@ const tabMenu = [
 
 export default function ProfileTab() {
   const { layout } = useLayout();
+
+  const address = useAddress();
+
+  const { contract: nftDropContract } = useContract(
+    nftDropContractAddress,
+    'nft-drop'
+  );
+
+  const { data: ownedNfts } = useOwnedNFTs(nftDropContract, address);
+
   return (
     <ParamTab tabMenu={tabMenu}>
       <TabPanel className="focus:outline-none">
@@ -42,14 +70,29 @@ export default function ProfileTab() {
               : 'md:grid-cols-1'
           )}
         >
-          {collections?.map((collection) => (
+          {/*collections?.map((collection) => (
+
             <CollectionCard
               item={collection}
               key={`collection-key-${collection?.id}`}
             />
+
+          ))*/}
+
+          {ownedNfts?.map((nft) => (
+            <div className="" key={nft.metadata.id.toString()}>
+              <ThirdwebNftMedia
+                metadata={nft.metadata}
+                className="rounded-lg"
+              />
+              <h4>
+                {nft.metadata.name} #{nft.metadata.id.toString()}
+              </h4>
+            </div>
           ))}
         </div>
       </TabPanel>
+
       <TabPanel className="focus:outline-none">
         <div className="space-y-8 md:space-y-10 xl:space-y-12">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">

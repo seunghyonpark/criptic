@@ -5,39 +5,21 @@ import type { NextPageWithLayout } from '@/types';
 import Link from 'next/link';
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
 import { useEffect, useState } from 'react';
-import Image from '@/components/ui/image';
-import Button from '@/components/ui/button';
-
 import { ConnectButton } from '@paperxyz/embedded-wallet-service-rainbowkit';
-//import { renderPaperCheckoutLink } from '@paperxyz/js-client-sdk';
-
-//import { useAccount } from 'wagmi';
+import { renderPaperCheckoutLink } from '@paperxyz/js-client-sdk';
+import { useAccount } from 'wagmi';
 
 //import RootLayout from './layout';
 
 import RootLayout from '@/layouts/_root-layout';
 
-//import '@rainbow-me/rainbowkit/styles.css';
+import '@rainbow-me/rainbowkit/styles.css';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 import { PaperEmbeddedWalletProvider } from '@paperxyz/embedded-wallet-service-rainbowkit';
 
-import {
-  ConnectWallet,
-  useDisconnect,
-  ThirdwebNftMedia,
-  useAddress,
-  useContract,
-  useContractRead,
-  useOwnedNFTs,
-  useTokenBalance,
-  Web3Button,
-} from '@thirdweb-dev/react';
+import Image from '@/components/ui/image';
 
-import {
-  nftDropContractAddress,
-  stakingContractAddress,
-  tokenContractAddress,
-} from '../../config/contractAddresses';
+import { useContract } from '@thirdweb-dev/react';
 
 export type BlogPost = {
   title: string;
@@ -72,24 +54,8 @@ const dummyPosts: BlogPost[] = [
 ======================================= */
 ///const HomePage = () => {
 
-const MintPage: NextPageWithLayout = () => {
-  console.log('MintPage=========');
-
-  const address = useAddress();
-  const disconnect = useDisconnect();
-
-  const { contract: nftDropContract } = useContract(
-    nftDropContractAddress,
-    'nft-drop'
-  );
-
-  const { contract: tokenContract } = useContract(
-    tokenContractAddress,
-    'token'
-  );
-  const { data: ownedNfts } = useOwnedNFTs(nftDropContract, address);
-
-  console.log('owenedNfts', ownedNfts);
+const StakePage: NextPageWithLayout = () => {
+  console.log('StakePage=========');
 
   const [loading, setLoading] = useState(true);
   const [hasNFT, setHasNFT] = useState(false);
@@ -119,7 +85,6 @@ const MintPage: NextPageWithLayout = () => {
       setHasNFT(false);
     },
   });
-  
 
   useEffect(() => {
     const checkNFT = async () => {
@@ -157,42 +122,16 @@ const MintPage: NextPageWithLayout = () => {
   if (loading) return null;
   */
 
+  const { contract, isLoading } = useContract(
+    '0xf454D80542B810AF9e5f5BedcE52c3FD41B3285b'
+  );
+
   return (
     <div className="text-center">
       {/* Header */}
-      <h1 className="mt-12 text-3xl">Mint</h1>
-
-      {!address && <div className="m-5">No wallet connected</div>}
-
-      <Web3Button
-        //colorMode="dark"
-        //accentColor="#5204BF"
-        contractAddress={nftDropContractAddress}
-        action={(contract) => contract.erc721.claim(1)}
-        onSuccess={() => {
-          alert('NFT Claimed!');
-          ////router.push("/stake");
-        }}
-        onError={(error) => {
-          alert(error);
-        }}
-      >
-        Claim An NFT
-      </Web3Button>
-
-      <div className="mt-5 grid grid-cols-3 gap-4">
-        {ownedNfts?.map((nft) => (
-          <div className="" key={nft.metadata.id.toString()}>
-            <ThirdwebNftMedia metadata={nft.metadata} className="" />
-            <h4>
-              {nft.metadata.name} #{nft.metadata.id.toString()}
-            </h4>
-          </div>
-        ))}
-      </div>
+      <h1 className="mt-12 text-3xl">Staking</h1>
 
       {/* Blog Posts */}
-      {/*
       {hasNFT ? (
         <div className="bg-dark-main text-light-main mx-auto mb-10 mt-8 max-w-5xl p-4">
           <div className="grid grid-cols-2 gap-4">
@@ -228,29 +167,12 @@ const MintPage: NextPageWithLayout = () => {
           </div>
         </div>
       )}
-            */}
-
-      {/* Buy NFT Button */}
-      {/*
-      {!address ? null : hasNFT ? null : (
-        <button
-          onClick={() =>
-            renderPaperCheckoutLink({
-              checkoutLinkUrl: shareableLink,
-            })
-          }
-          className="bg-dark-tertiary hover:bg-dark-quaternary rounded px-5 py-3 transition-all"
-        >
-          Buy with Paper
-        </button>
-      )}
-        */}
     </div>
   );
 };
 
-MintPage.getLayout = function getLayout(page) {
+StakePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export default MintPage;
+export default StakePage;

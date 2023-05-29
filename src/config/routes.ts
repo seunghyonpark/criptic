@@ -30,6 +30,7 @@ const routes = {
   coinDetails: '/coin-details',
 
   mint: '/mint',
+  stake: '/stake',
 
   apiBlogPosts: '/api/blogPosts',
   api: '/api',
