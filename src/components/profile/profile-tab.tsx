@@ -20,6 +20,8 @@ import {
   tokenContractAddress,
 } from '../../config/contractAddresses';
 
+import { useEffect, useState } from 'react';
+
 import {
   ConnectWallet,
   useDisconnect,
@@ -31,6 +33,8 @@ import {
   useTokenBalance,
   Web3Button,
 } from '@thirdweb-dev/react';
+
+import { BigNumber, ethers } from 'ethers';
 
 const tabMenu = [
   {
@@ -64,7 +68,35 @@ export default function ProfileTab() {
     tokenContractAddress,
     'token'
   );
+
+  const { contract, isLoading } = useContract(stakingContractAddress);
+
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
+
+  async function stakeNft(id: string) {
+    if (!address) return;
+
+    const isApproved = await nftDropContract?.isApproved(
+      address,
+      stakingContractAddress
+    );
+
+    if (!isApproved) {
+      await nftDropContract?.setApprovalForAll(stakingContractAddress, true);
+    }
+
+    const data = await contract?.call('stake', [id]);
+
+    //console.log("data",data);
+  }
+
+  const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
+
+  const { data: stakedTokens } = useContractRead(contract, 'getStakeInfo', [
+    address,
+  ]);
+
+  //console.log(stakedTokens);
 
   return (
     <ParamTab tabMenu={tabMenu}>
@@ -86,6 +118,28 @@ export default function ProfileTab() {
 
           ))*/}
 
+          {/*
+          {stakedTokens[0]?.map((nft) => (
+            <div className="" key={nft.metadata.id.toString()}>
+            <ThirdwebNftMedia
+              metadata={nft.metadata}
+              className="rounded-lg"
+            />
+            <h4>
+              {nft.metadata.name} #{nft.metadata.id.toString()}
+            </h4>
+
+            <Web3Button
+                contractAddress={stakingContractAddress}
+                action={() => stakeNft(nft.metadata.id)}
+              >
+                Rent to Gwacheon Racetrack
+              </Web3Button>
+
+          </div>
+          ))}
+          */}
+
           {ownedNfts?.map((nft) => (
             <div className="" key={nft.metadata.id.toString()}>
               <ThirdwebNftMedia
@@ -95,6 +149,13 @@ export default function ProfileTab() {
               <h4>
                 {nft.metadata.name} #{nft.metadata.id.toString()}
               </h4>
+
+              <Web3Button
+                contractAddress={stakingContractAddress}
+                action={() => stakeNft(nft.metadata.id)}
+              >
+                Rent to Gwacheon Racetrack
+              </Web3Button>
             </div>
           ))}
         </div>
