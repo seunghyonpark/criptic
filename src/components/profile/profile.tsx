@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCopyToClipboard } from 'react-use';
 import AuthorInformation from '@/components/author/author-information';
 import { authorData } from '@/data/static/author';
@@ -27,6 +27,8 @@ import {
   Web3Button,
 } from '@thirdweb-dev/react';
 
+import { BigNumber, ethers } from 'ethers';
+
 export default function Profile() {
   const [copyButtonStatus, setCopyButtonStatus] = useState(false);
   const [_, copyToClipboard] = useCopyToClipboard();
@@ -52,6 +54,22 @@ export default function Profile() {
     'token'
   );
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
+
+  const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
+
+  const { contract, isLoading } = useContract(stakingContractAddress);
+
+  useEffect(() => {
+    if (!contract || !address) return;
+
+    async function loadClaimableRewards() {
+      const stakeInfo = await contract?.call('getStakeInfo', [address]);
+      ////const stakeInfo = await contract?.call("getStakeInfo", );
+      setClaimableRewards(stakeInfo[1]);
+    }
+
+    loadClaimableRewards();
+  }, [address, contract]);
 
   return (
     <div className="flex w-full flex-col pt-4 md:flex-row md:pt-10 lg:flex-row 3xl:pt-12">
@@ -94,6 +112,25 @@ export default function Profile() {
                 <h3>
                   <b>{tokenBalance?.displayValue}</b> {tokenBalance?.symbol}
                 </h3>
+              </div>
+
+              <div className="mt-3 text-sm font-medium tracking-tighter text-gray-600 dark:text-gray-400 xl:mt-3">
+                <span>Claimable Rewards</span>
+                <h3>
+                  <b>
+                    {!claimableRewards
+                      ? 'Loading...'
+                      : ethers.utils.formatUnits(claimableRewards, 18)}
+                  </b>{' '}
+                  {tokenBalance?.symbol}
+                </h3>
+
+                <Web3Button
+                  action={(contract) => contract.call('claimRewards')}
+                  contractAddress={stakingContractAddress}
+                >
+                  Claim Rewards
+                </Web3Button>
               </div>
             </div>
 
