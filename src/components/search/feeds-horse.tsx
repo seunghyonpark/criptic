@@ -12,11 +12,7 @@ import { Network, Alchemy } from 'alchemy-sdk';
 
 import { useEffect, useState } from 'react';
 
-import {
-  nftDropContractAddress,
-  stakingContractAddress,
-  tokenContractAddress,
-} from '../../config/contractAddresses';
+import { nftDropContractAddress } from '../../config/contractAddresses';
 
 import useSWR from 'swr';
 import { fetcher } from '../../lib/utils';
